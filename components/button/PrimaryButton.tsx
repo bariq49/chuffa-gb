@@ -9,6 +9,7 @@ type ButtonProps = {
   disabled?: boolean;
   isLoading?: boolean;
   loaderColor?: string;
+  icon?: React.ReactNode;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -19,6 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   isLoading = false,
   loaderColor = 'text-white',
+  icon = null,
 }) => {
   return (
     <button
@@ -26,13 +28,14 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled || isLoading}
       className={`
-        px-4 py-2 bg-primary rounded-lg
-        relative transition-all duration-200
+        px-4 py-4 bg-primary rounded-lg
+        relative transition-all duration-200 text-white w-full cursor-pointer text-md font-medium
         ${disabled || isLoading ? 'opacity-80 cursor-not-allowed' : 'hover:bg-primary-dark'}
         ${className}
       `}
     >
       <span className={`inline-flex items-center justify-center ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+        {icon && <span className="mr-2">{icon}</span>}
         {label}
       </span>
       
