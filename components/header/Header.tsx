@@ -5,6 +5,7 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 import { HiMenu, HiOutlineX } from "react-icons/hi";
 import TopBar from "./TopBar";
 import { navItems } from "@/utils/data";
+import { usePathname } from "next/navigation";
 
 const dropdownVariants: Variants = {
     initial: { opacity: 0, y: -10 },
@@ -22,6 +23,8 @@ export default function Header() {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
+    const pathname = usePathname();
+    const isHomePage = pathname === '/';
 
     const handleDropdownToggle = (id: string) => {
         setActiveDropdown(activeDropdown === id ? null : id);
@@ -62,12 +65,11 @@ export default function Header() {
     }, [activeDropdown]);
 
     return (
-        <div className="flex flex-col bg-primary/50 absolute w-full z-50">
+        <header className={`${isHomePage ? 'fixed left-0 right-0 top-0 z-50' : 'relative'}`}>
             <TopBar />
-            <div className="bg-transparent">
-                <div className="container mx-auto px-4 py-5">
+            <div className={`${isHomePage ? 'bg-primary/50' : 'bg-primary'}`}>
+                <div className="container mx-auto px-4 py-6">
                     <div className="flex items-center justify-center relative">
-                        {/* Logo */}
                         <div className="absolute left-0">
                             <h1 className="text-2xl font-bold text-white">Chuffa GB</h1>
                         </div>
@@ -224,6 +226,6 @@ export default function Header() {
                     />
                 )}
             </AnimatePresence>
-        </div>
+        </header>
     );
 }

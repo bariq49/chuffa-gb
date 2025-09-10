@@ -19,7 +19,7 @@ export const navItems = [
     ]
   },
   { id: "blog", label: "Blog", href: "#" },
-  { id: "faqs", label: "FAQs", href: "#" },
+  { id: "faqs", label: "FAQs", href: "/faqs" },
   { id: "contact", label: "Contact", href: "#" }
 ];
 
@@ -57,7 +57,7 @@ export const quickLinks = [
   { label: "About Us", href: "#" },
   { label: "Our Fleet", href: "#" },
   { label: "Blog", href: "#" },
-  { label: "FAQs", href: "#" },
+  { label: "FAQs", href: "/faqs" },
   { label: "Contact", href: "#" }
 ];
 
