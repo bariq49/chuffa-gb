@@ -9,6 +9,7 @@ export default function VissionMission() {
         </h2>
         <div className="space-y-12 sm:space-y-0 sm:flex sm:justify-center sm:space-x-8">
           <div className=" p-8  flex-1 border-b border-[#D0D0D0]">
+            
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
             <p className="text-gray-600 leading-relaxed">
               Our goal is to be the top name in luxury ground travel in the UK. For VIPs and pros alike, we want to give smooth and trusted executive chauffeur service in London, setting new standards for city rides.
