@@ -10,17 +10,17 @@ export const navItems = [
     label: "Our Fleet",
     isDropdown: true,
     items: [
-      { label: "Premier Airport Chauffeur Service in London", href: "#" },
-      { label: "Custom Hourly Chauffeur Service", href: "#" },
-      { label: "Elite Executive Chauffeur Services in London", href: "#" },
-      { label: "Scenic City-to-City Drives", href: "#" },
-      { label: "Elegant Wedding Chauffeur Service in London", href: "#" },
-      { label: "Premium Business Class Service", href: "#" }
+      { label: "Premier Airport Chauffeur Service in London", href: "/airport-transfer" },
+      { label: "Custom Hourly Chauffeur Service", href: "/hourly-transfer" },
+      { label: "Elite Executive Chauffeur Services in London", href: "/executive-trasnfer" },
+      { label: "Scenic City-to-City Drives", href: "/city-to-city" },
+      { label: "Elegant Wedding Chauffeur Service in London", href: "/weding-transfer" },
+      { label: "Premium Business Class Service", href: "/premium-trasnfer" }
     ]
   },
   { id: "blog", label: "Blog", href: "#" },
   { id: "faqs", label: "FAQs", href: "/faqs" },
-  { id: "contact", label: "Contact", href: "#" }
+  { id: "contact", label: "Contact", href: "/contact" }
 ];
 
 

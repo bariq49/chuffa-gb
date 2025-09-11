@@ -77,7 +77,7 @@ h2 {
 }
 
 h3 {
-  color: white;
+  color: var(--primary);
   font-size: var(--h3-size);
   font-weight: var(--h3-weight);
   line-height: var(--h3-line);
