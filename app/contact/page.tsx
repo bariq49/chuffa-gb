@@ -37,7 +37,7 @@ export default function Contact() {
                 ></textarea>
               </div>
               <div>
-               <Button label='Send Message'/>
+               <Button label='Send Message' className='w-full'/>
               </div>
             </form>
           </div>

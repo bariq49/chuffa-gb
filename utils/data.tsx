@@ -3,8 +3,8 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 
 export const navItems = [
-  { id: "home", label: "Home", href: "#" },
-  { id: "about", label: "About", href: "#" },
+  { id: "home", label: "Home", href: "/" },
+  { id: "about", label: "About", href: "/about" },
   {
     id: "fleet",
     label: "Our Fleet",

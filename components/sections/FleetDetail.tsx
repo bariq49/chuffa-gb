@@ -17,7 +17,7 @@ export default function FleetDetail({
 }: FleetDetailProps) {
   return (
     <div className="py-16 px-4 sm:px-6 lg:px-8 font-sans">
-      <div className="md:px-24">
+      <div className="max-w-7xl m-auto">
             
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           <div className="w-full lg:w-1/2">

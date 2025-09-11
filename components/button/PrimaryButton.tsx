@@ -29,7 +29,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled || isLoading}
       className={`
         px-4 py-4 bg-primary rounded-lg
-        relative transition-all duration-200 text-white w-full cursor-pointer text-md font-medium
+        relative transition-all duration-200 text-white  cursor-pointer text-md font-medium
         ${disabled || isLoading ? 'opacity-80 cursor-not-allowed' : 'hover:bg-primary-dark'}
         ${className}
       `}

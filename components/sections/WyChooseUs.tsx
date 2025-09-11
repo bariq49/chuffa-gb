@@ -10,9 +10,17 @@ interface ChooseItem {
 
 interface WhyChooseUsProps {
   chooseData: ChooseItem[];
+  showHeader?: boolean;
+  subtitle?: string;
+  title?: string;
 }
 
-export default function WhyChooseUs({ chooseData }: WhyChooseUsProps) {
+export default function WhyChooseUs({ 
+  chooseData, 
+  showHeader = false, 
+  subtitle = "Why Choose Us",
+  title = "Premium features designed to make every ride smooth, safe, and stress-free."
+}: WhyChooseUsProps) {
   const defaultData = [
     {
       icon: <FaClock />,
@@ -39,8 +47,14 @@ export default function WhyChooseUs({ chooseData }: WhyChooseUsProps) {
   const dataToUse = chooseData && chooseData.length > 0 ? chooseData : defaultData;
 
   return (
-    <section className="py-18 bg-primary">
+    <section className="py-16 bg-primary">
       <div className="container mx-auto px-4">
+        {showHeader && (
+          <div className="max-w-2xl w-full pb-12">
+            <h5 className="text-blue-200 font-semibold text-lg mb-2">{subtitle}</h5>
+            <h1 className="text-white text-3xl md:text-4xl font-bold">{title}</h1>
+          </div>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {dataToUse.map((item, index) => (
             <ChooseCard
