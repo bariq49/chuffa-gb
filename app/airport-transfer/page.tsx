@@ -13,26 +13,26 @@ export default function AirportTransfer() {
   ];
 
   const customChooseData = [
-      {
-          icon: <FaClock />,
-          title: "No Rush, Just Comfort",
-          description: "We give you flexible pickup times so you can take it easy at the start of your ride."
-      },
-      {
-          icon: <FaUserShield />,
-          title: "Plans Change? We Get It",
-          description: "You can update or cancel your booking up to 48 hours ahead without any hassle."
-      },
-      {
-          icon: <FaCar />,
-          title: "Know Where Your Driver Is",
-          description: "Follow your driver's location live, with updates on when they'll arrive and the whole route."
-      },
-      {
-          icon: <FaHeadset />,
-          title: "Clear Prices, No Guesswork",
-          description: "Our prices are shown right up front – no hidden extras or surprises at the end."
-      }
+    {
+      icon: <FaClock />,
+      title: "No Rush, Just Comfort",
+      description: "We give you flexible pickup times so you can take it easy at the start of your ride."
+    },
+    {
+      icon: <FaUserShield />,
+      title: "Plans Change? We Get It",
+      description: "You can update or cancel your booking up to 48 hours ahead without any hassle."
+    },
+    {
+      icon: <FaCar />,
+      title: "Know Where Your Driver Is",
+      description: "Follow your driver's location live, with updates on when they'll arrive and the whole route."
+    },
+    {
+      icon: <FaHeadset />,
+      title: "Clear Prices, No Guesswork",
+      description: "Our prices are shown right up front – no hidden extras or surprises at the end."
+    }
   ];
 
 
@@ -61,16 +61,16 @@ export default function AirportTransfer() {
 
   return (
     <>
-     <CustomBoxSection title="Luxury Airport Transfers, On Time Every Time" content="Get a smooth, private, and pro ride – enjoy top airport travel with skilled drivers at all major London airports, open 24/7."/>
-    <FleetDetail
-    title="Airport Chauffeur Service: The Experience You Deserve"
-    descriptions={descriptions}
-    imageUrl="/Rectangle 42.png"
-    imageAlt="Airport Chauffeur Service"
-    />
-    <WhyChooseUs chooseData={customChooseData} />
-    <CustomBoxSection title="FAQS" content="Frequently Asked Questions"/>
-    <FaqsSection faqData={customFaqData} />
+      <CustomBoxSection title="Luxury Airport Transfers, On Time Every Time" content="Get a smooth, private, and pro ride – enjoy top airport travel with skilled drivers at all major London airports, open 24/7." />
+      <FleetDetail
+        title="Airport Chauffeur Service: The Experience You Deserve"
+        descriptions={descriptions}
+        imageUrl="/Rectangle 42.png"
+        imageAlt="Airport Chauffeur Service"
+      />
+      <WhyChooseUs chooseData={customChooseData} />
+      <CustomBoxSection title="FAQS" content="Frequently Asked Questions" />
+      <FaqsSection faqData={customFaqData} />
 
     </>
   );
