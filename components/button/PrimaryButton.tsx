@@ -1,10 +1,10 @@
-import React from 'react';
-import Loader from '../loaders/ButtonLoader';
+import React from "react";
+import Loader from "../loaders/ButtonLoader";
 
 type ButtonProps = {
   label: string;
   onClick?: () => void;
-  type?: 'button' | 'submit' | 'reset';
+  type?: "button" | "submit" | "reset";
   className?: string;
   disabled?: boolean;
   isLoading?: boolean;
@@ -15,11 +15,11 @@ type ButtonProps = {
 const Button: React.FC<ButtonProps> = ({
   label,
   onClick,
-  type = 'button',
-  className = '',
+  type = "button",
+  className = "",
   disabled = false,
   isLoading = false,
-  loaderColor = 'text-white',
+  loaderColor = "text-white",
   icon = null,
 }) => {
   return (
@@ -28,22 +28,28 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled || isLoading}
       className={`
-        px-4 py-4 bg-primary rounded-lg
-        relative transition-all duration-200 text-white  cursor-pointer text-md font-medium
-        ${disabled || isLoading ? 'opacity-80 cursor-not-allowed' : 'hover:bg-primary-dark'}
+        relative inline-flex items-center justify-center px-4 py-3 
+        bg-primary rounded-lg transition-all duration-200 text-white text-md font-medium
+        ${disabled || isLoading ? "opacity-80 cursor-not-allowed" : "hover:bg-primary-dark"}
         ${className}
       `}
     >
-      <span className={`inline-flex items-center justify-center ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
-        {icon && <span className="mr-2">{icon}</span>}
-        {label}
-      </span>
-      
+      {/* Loader overlay */}
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center">
           <Loader />
         </div>
       )}
+
+      {/* Content */}
+      <span
+        className={`flex w-full items-center ${
+          isLoading ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        <span className="flex-1 text-center">{label}</span>
+        {icon && <span className="ml-auto">{icon}</span>}
+      </span>
     </button>
   );
 };
