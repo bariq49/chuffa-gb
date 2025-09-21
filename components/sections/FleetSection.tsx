@@ -44,7 +44,7 @@ export default function FleetSection() {
         title="Our Fleet - Vehicles You Can Count On"
         content="Our versatile fleet caters to solo travelers, groups, and everyone in between. Every vehicle is rigorously maintained for safety, loaded with amenities like Wi-Fi, climate control, and premium seating, and operated by vetted experts."
       />
-      <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl m-auto">
+      <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl m-auto pb-12">
         {vehicles.map((v) => (
           <FleetCard
             key={v.title}

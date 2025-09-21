@@ -31,7 +31,7 @@ export default function OfferSection() {
 
   return (
     <section className="bg-primary py-16 px-6 text-white">
-      <div className="mx-auto max-w-6xl text-center">
+      <div className="mx-auto max-w-7xl text-center">
         <h2 className="text-2xl font-bold uppercase tracking-wide mb-12">
           What Do We Offer?
         </h2>

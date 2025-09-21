@@ -50,7 +50,7 @@ export default function ClientSays() {
 
   return (
     <section className="w-full bg-white py-16">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-10 px-4 sm:px-6 lg:grid-cols-12">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-10 px-4 sm:px-6 lg:grid-cols-12">
         <div className="lg:col-span-6">
           <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 sm:text-4xl">
             {heading}
