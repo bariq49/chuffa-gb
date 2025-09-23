@@ -2,11 +2,10 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import { HiMenu, HiOutlineX, HiOutlineDeviceMobile } from "react-icons/hi";
-import { FaInstagram } from "react-icons/fa";
+import { HiMenu, HiOutlineX } from "react-icons/hi";
 import { navItems } from "@/utils/data";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
+import TopBar from "./TopBar";
 
 const dropdownVariants: Variants = {
   initial: { opacity: 0, y: -10 },
@@ -33,11 +32,11 @@ export default function Header() {
   };
 
   const handleMouseEnter = (id: string) => {
-    if (window.innerWidth >= 768) setActiveDropdown(id);
+    if (typeof window !== "undefined" && window.innerWidth >= 768) setActiveDropdown(id);
   };
 
   const handleMouseLeave = () => {
-    if (window.innerWidth >= 768) setActiveDropdown(null);
+    if (typeof window !== "undefined" && window.innerWidth >= 768) setActiveDropdown(null);
   };
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((s) => !s);
@@ -49,23 +48,22 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const bgClass = isHomePage ? (isScrolled ? "bg-black" : "bg-transparent") : "bg-primary";
+  const bgClass = isHomePage ? (isScrolled ? "bg-black/30 backdrop-blur-md" : "bg-black/30 ") : "bg-primary";
 
   return (
     <header className={`${isHomePage ? "fixed left-0 right-0 top-0 z-50" : "relative"}`}>
+      
+      <TopBar/>
       <div className={`${bgClass} transition-colors duration-300`}>
-        <div className="container mx-auto md:px-12 px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex-shrink-0">
-              <Image src="/mainLogo.png" alt="Company Logo" width={120} height={60} className="h-12 w-auto" />
-            </div>
-
-            <nav className="hidden md:flex items-center justify-center flex-1 mx-8">
+        <div className="container mx-auto md:px-12 px-4 py-2">
+          <div className="flex items-center justify-center">
+            {/* Desktop Nav - centered */}
+            <nav className="hidden md:flex items-center justify-center gap-8">
               {navItems.map((item) =>
                 item.isDropdown ? (
                   <div
                     key={item.id}
-                    className="relative mx-2"
+                    className="relative"
                     onMouseEnter={() => handleMouseEnter(item.id)}
                     onMouseLeave={handleMouseLeave}
                     ref={dropdownRef}
@@ -90,14 +88,14 @@ export default function Header() {
                     <AnimatePresence>
                       {activeDropdown === item.id && (
                         <motion.div
-                          className="absolute top-full left-0 bg-gray-900 shadow-lg rounded-md mt-2 p-2 min-w-[200px] z-10 text-white"
+                          className="absolute top-full left-1/2 -translate-x-1/2 bg-gray-900 shadow-lg rounded-md mt-2 p-2 min-w-[220px] z-10 text-white"
                           variants={dropdownVariants}
                           initial="initial"
                           animate="animate"
                           exit="exit"
                         >
                           <ul className="space-y-1">
-                            {item.items.map((subItem, index) => (
+                            {item.items.map((subItem: any, index: number) => (
                               <li key={index}>
                                 <a
                                   href={subItem.href}
@@ -117,7 +115,7 @@ export default function Header() {
                   <a
                     key={item.id}
                     href={item.href}
-                    className="text-white hover:text-white/90 transition-colors px-3 py-2 mx-1"
+                    className="text-white hover:text-white/90 transition-colors px-3 py-2"
                   >
                     {item.label}
                   </a>
@@ -125,21 +123,7 @@ export default function Header() {
               )}
             </nav>
 
-            <div className="hidden md:flex items-center space-x-4 flex-shrink-0">
-              <a href="tel:+447342193341" className="flex items-center text-white hover:text-white/90 transition-colors">
-                <HiOutlineDeviceMobile className="mr-2 h-5 w-5" />
-                <span className="hidden lg:inline">+44 7342 193341</span>
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-white/90 transition-colors p-2"
-              >
-                <FaInstagram className="h-5 w-5" />
-              </a>
-            </div>
-
+            {/* Mobile menu button (centered) */}
             <div className="md:hidden">
               <button onClick={toggleMobileMenu} className="text-white p-2">
                 <AnimatePresence mode="wait">
@@ -159,6 +143,7 @@ export default function Header() {
         </div>
       </div>
 
+      {/* Mobile Sidebar */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -169,8 +154,8 @@ export default function Header() {
             exit="exit"
           >
             <div className="flex flex-col h-full">
-              <div className="flex justify-between items-center mb-8">
-                <Image src="/mainLogo.png" alt="Company Logo" width={100} height={50} className="h-10 w-auto" />
+              <div className="flex justify-between items-center mb-6">
+                <span className="text-white/80 text-sm">Menu</span>
                 <button onClick={toggleMobileMenu} className="text-white p-2">
                   <HiOutlineX size={24} />
                 </button>
@@ -206,7 +191,7 @@ export default function Header() {
                             transition={{ duration: 0.3 }}
                           >
                             <ul className="space-y-2 py-2">
-                              {item.items.map((subItem, subIndex) => (
+                              {item.items.map((subItem: any, subIndex: number) => (
                                 <li key={subIndex}>
                                   <a
                                     href={subItem.href}
@@ -234,27 +219,12 @@ export default function Header() {
                   )
                 )}
               </nav>
-
-              <div className="pt-8 border-t border-white/20 mt-8">
-                <a href="tel:+447342193341" className="flex items-center text-white mb-4">
-                  <HiOutlineDeviceMobile className="mr-3 h-5 w-5" />
-                  <span>+44 7342 193341</span>
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center text-white"
-                >
-                  <FaInstagram className="mr-3 h-5 w-5" />
-                  <span>Follow us on Instagram</span>
-                </a>
-              </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
+      {/* Backdrop */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
